@@ -9,18 +9,18 @@ function guess() {
     }
 
     if(!validateInput(input.value)){
-    	return;
+    	return false;
     } 
-    attempt += 1;
+    attempt.value++;
 
     if(getResults(input.value)){
     	setMessage('You Win! :)');
     	showAnswer(true);
     	showReplay();
     } else if(attempt.value >= 10){
-    		setMessage('You Lose! :(');
-    		showAnswer(false);
-			showReplay();
+		setMessage('You Lose! :(');
+		showAnswer(false);
+		showReplay();
     } else
     	setMessage('Incorrect, try again.');
 }
@@ -37,7 +37,7 @@ function showAnswer(success){
 }
 
 function showReplay(){
-	document.getElementById('guessing-dev').style.display = "none";
+	document.getElementById('guessing-div').style.display = "none";
 	document.getElementById('replay-div').style.display = "block";
 }
 
